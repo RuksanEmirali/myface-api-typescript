@@ -13,7 +13,7 @@ npm run seed
 - `npm run migrate` setups a database for us to use.
 - `npm run seed` adds some sample data to our database.
 
-Once you have run all of those, we can simply start the app with
+Once you have run all of those, we can simply start the app with`
 ```shell
 npm start
 ```
