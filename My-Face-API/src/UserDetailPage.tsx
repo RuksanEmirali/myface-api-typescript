@@ -1,33 +1,14 @@
-import { BrowserRouter as Router,Routes, Route, Link, useParams, useRouter } from 'react-router-dom';
+import { BrowserRouter as Router,Routes, Route, Link, useParams } from 'react-router-dom';
 import { useState, useEffect, Key } from 'react'
 
 
-{/* <Router> 
-    <Routes>
-        <Route path=`/${userId}`>
-        element = {}
-        </Route>
-    </Routes>
-</Router> */}
-
-// [userId, setUserId] = useState(1)
-
-// export function Ids () {
-//     const { id} = useParams()
-//     return <{id}/>
-// }
-
 export function UserDetailPage() : JSX.Element {
-   const { query } = useRouter();
-  
-  // 👇 Get id value from dynamic route
-  const { id } = query;
-
+    const { id } = useParams();
 
     const [myData, setMyData] = useState(null)
    
     useEffect(() => {
-        fetch( "http://localhost:3001/users/1" )
+        fetch( `http://localhost:3001/users/${id}` )
         .then(response => response.json())
         .then(data => setMyData(data))
         }, []);
