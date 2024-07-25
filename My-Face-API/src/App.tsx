@@ -1,35 +1,26 @@
-import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
+import { PostsPage } from './PostsPage'
+import { UserDetailPage } from './UserDetailPage';
+import { useState, useEffect, Key } from 'react'
+
 
 
 
 function App() {
-  const [myData, setMyData] = useState(null)
-  useEffect(() => {
-    fetch("http://localhost:3001/posts")
-    .then(response => response.json())
-    .then(data => setMyData(data.results))
-    }, []);
-  
-    if (!myData) {
-      return <div>Waiting for data!</div>
-    } 
-
-    return (
-      <>
-          {myData.map((k) => (
-              <div>
-                  <span>{k.postedBy.username}</span>
-                  <span>{k.id}</span>
-                  <span>{k.message}</span>
-                  <img src={k.imageUrl}/>
-              </div>
-          ))}
-        
-      </>
-  );    
+  return (
+  <Router>
+    <h1>MyFace</h1>
+      <Routes>
+        <Route path="/posts"
+        element={<PostsPage/>}/>
+        <Route path="/user/:id"
+        element={<UserDetailPage id={userId}/>}/>
+      </Routes>
+    </Router>
+  )
 }
   // const [count, setCount] = useState(0)
 
