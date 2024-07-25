@@ -1,15 +1,20 @@
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
+import './App.scss'
 import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
 import { PostsPage } from './PostsPage'
 import { UserDetailPage } from './UserDetailPage';
+import { CreateUserPage } from './CreateUserPage';
 import { useState, useEffect, Key } from 'react'
+import ReactDOM from 'react-dom/client';
 
 
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<CreateUserPage />);
 
 
 function App() {
+  
   return (
   <Router>
     <h1>MyFace</h1>
@@ -18,6 +23,8 @@ function App() {
         element={<PostsPage/>}/>
         <Route path="/user/:id"
         element={<UserDetailPage/>}/>
+        <Route path="/users/create"
+        element={<CreateUserPage/>}/>
       </Routes>
     </Router>
   )

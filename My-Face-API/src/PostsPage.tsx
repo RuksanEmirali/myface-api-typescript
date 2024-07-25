@@ -1,4 +1,5 @@
 import { useState, useEffect, Key } from 'react'
+import './PostsPage.scss'
 
 
 export function PostsPage() {
@@ -14,16 +15,16 @@ export function PostsPage() {
         } 
     
         return (
-          <>
+            <div className='posts'>
               {myData.map((k) => (
-                  <div>
-                      <span>{k.postedBy.username}</span>
-                      <span>{k.id}</span>
-                      <span>{k.message}</span>
+                  <div className='onePost'>
+                      <p className="message">{k.message}</p>
                       <img src={k.imageUrl}/>
+                      <p className="username">{k.postedBy.username}</p>
+                      <p className="createdAt">Created at : {k.createdAt}</p>
                   </div>
               ))}
-            
-          </>
+            </div>  
+
       );
 }

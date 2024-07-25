@@ -1,0 +1,50 @@
+@import 'design';
+
+
+.post {
+    display: flex;
+    flex-direction: column;
+    padding: 50vw;
+    align-items: flex-start;
+    justify-content: left;
+    
+}
+
+.onePost {
+    background-color: $backgroudColor;
+    }
+
+@mixin text() {
+    text-align: left;
+    color: $textColor;
+    font-family: $font;
+    font-size: $bodySize;
+}
+
+.message {
+    @include text();
+    font-weight: $textWeight;
+}
+
+.username {
+    @include text();
+    font-weight: $textWeight*1.5;
+}
+
+.createdAt {
+    @include text();
+    font-weight: $textWeight*0.75;
+    font-size: $bodySize/7*5;
+}
+
+// .message{
+//     text-align: left;
+//     color: $textColor;
+//     font-weight: $textWeight;
+//     font-size: $bodySize;
+//     font-family: $font;
+// }
+
+// .onePost(){
+//     @include posts(yellow);
+// }
