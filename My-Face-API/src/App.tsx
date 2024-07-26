@@ -9,8 +9,8 @@ import { useState, useEffect, Key } from 'react'
 import ReactDOM from 'react-dom/client';
 
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<CreateUserPage />);
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<CreateUserPage />);
 
 
 function App() {

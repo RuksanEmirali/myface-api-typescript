@@ -6,8 +6,38 @@ export function CreateUserPage() {
 
     const [email, setEmail] = useState("")
 
+    const handleSubmit = (event) => {
+                event.preventDefault();
+                // alert(username);
+                fetch("http://localhost:3001/users/create/", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        name: "Ruksan",
+                        email: "ruksanemirali@softwire.com",
+                        coverImageUrl: "sdfs",
+                        profileImageUrl: "asfda"
+                    })
+                })
+              }
+
     return(
-        <form onSubmit={}
+        <>
+        <form onSubmit={handleSubmit}>
+        <label>Enter your username:
+        <input
+        type="text"
+        value={username}
+        onChange={username => setUsername(username.target.value)}
+        />
+        </label>
+        <input type="submit" />
+        </form>
+        {username}
+        </>
     )
 }
 
